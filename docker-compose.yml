@@ -34,7 +34,10 @@ services:
       - laravel
 
   php:
-    build: .
+    build:
+      context: .
+      args:
+        PHP_VERSION: ${PHP_VERSION:-7.4}
     volumes:
       - ./src:/var/www
     ports:
