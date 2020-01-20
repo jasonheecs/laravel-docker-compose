@@ -4,15 +4,33 @@ require_relative 'docker_compose_context'
 set :backend, :exec
 
 describe 'build command' do
-  before do
+  before(:all) do
     system('make build')
   end
 
   it_behaves_like 'a laravel docker compose setup'
+
+  describe 'Able to access localhost' do
+    it 'returns a 200 status code' do
+      Net::HTTP.start('localhost', 8080) {|http|
+        expect(http.head('/').code).to eql("200")
+      }
+    end
+  end
+end
+
+describe 'destroy command' do
+  before(:all) do
+    system('make destroy')
+  end
+
+  describe command('docker ps --format "{{.Names}}"') do
+    its(:stdout) { is_expected.to eql('') }
+  end
 end
 
 describe 'rebuild command' do
-  before do
+  before(:all) do
     system('make rebuild')
   end
 
