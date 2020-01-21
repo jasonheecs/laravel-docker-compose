@@ -15,7 +15,7 @@ destroy:
 
 rebuild:
 	make destroy
-	rm -rf ./src
+	rm -rf ./src || echo "unable to remove src directory"
 	make build
 	make start
 

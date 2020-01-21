@@ -1,0 +1,15 @@
+---
+sudo: required
+services:
+  - docker
+
+language: ruby
+rvm:
+  - 2.7
+cache: bundler
+
+script:
+  - bundle exec rspec
+
+notifications:
+  email: false
