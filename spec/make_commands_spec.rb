@@ -17,6 +17,12 @@ describe 'build command' do
       }
     end
   end
+
+  describe 'php container should have php.ini loaded' do
+    describe command('docker-compose exec php sh -c "php --ini"') do
+      its(:stdout) { is_expected.to contain('/usr/local/etc/php/php.ini').after('Loaded Configuration File') }
+    end
+  end
 end
 
 describe 'destroy command' do
