@@ -1,4 +1,5 @@
 .PHONY: list
+.SILENT: build
 
 start:
 	docker-compose start
@@ -8,16 +9,17 @@ stop:
 
 build:
 	docker-compose up --build -d
-	docker-compose run php composer create-project --prefer-dist laravel/laravel .
+	if [ ! -f "./src/.env" ]; then \
+        docker-compose run php composer create-project --prefer-dist laravel/laravel .; \
+    fi
 
 destroy:
-	docker-compose down
+	docker-compose down -v
 
 rebuild:
+	@rm -rf ./src
 	make destroy
-	rm -rf ./src || echo "unable to remove src directory"
 	make build
-	make start
 
 connect:
 	docker-compose exec php sh

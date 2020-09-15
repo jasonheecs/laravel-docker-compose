@@ -19,7 +19,7 @@ services:
       - laravel
 
   postgres:
-    image: postgres:12.1
+    image: postgres:12.3
     tty: true
     ports:
       - "5432:5432"
