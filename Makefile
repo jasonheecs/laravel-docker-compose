@@ -17,7 +17,7 @@ destroy:
 	docker-compose down -v
 
 rebuild:
-	@rm -rf ./src
+	@rm -rf ./src || echo 'Unable to remove src'
 	make destroy
 	make build
 
