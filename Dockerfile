@@ -7,6 +7,7 @@ LABEL version="1.0.0"
 LABEL maintainer="hello@jasonhee.com"
 
 COPY php/xdebug.ini /usr/local/etc/php/conf.d/
+RUN mv /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
 RUN set -ex \
     && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
