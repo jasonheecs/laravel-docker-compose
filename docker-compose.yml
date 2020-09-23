@@ -40,10 +40,8 @@ services:
         PHP_VERSION: ${PHP_VERSION:-7.4}
     volumes:
       - ./src:/var/www
-    ports:
-      - "9000:9000"
     environment:
-      PHP_IDE_CONFIG: ${PHP_IDE_CONFIG:-laravel-docker-compose.test}
+      XDEBUG_CONFIG: ${XDEBUG_CONFIG:-remote_host=host.docker.internal}
     networks:
       - laravel
 
