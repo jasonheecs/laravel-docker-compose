@@ -16,6 +16,27 @@ cd laravel-docker-compose
 A Laravel app will be created in your `src` folder
 
 
+## Setting up XDebug on PHPStorm
+
+## Rename .env.example to .env
+```
+NETWORK_NAME=custom-network
+XDEBUG_CONFIG=remote_host=192.168.1.1
+```
+
+Ensure you have the right `remote_host` for XDebug specified. You may need to modify the config if host.docker.internal does not work for your OS.
+
+
+### Add a Docker server
+![Docker Server Settings](https://i.imgur.com/G6p2004.png)
+
+### Set DBGp Proxy settings
+![DBGp Proxy settings](https://i.imgur.com/dy8y7r0.png)
+
+### Create a Debug configuration
+![PHPStorm Debug Configuration](https://i.imgur.com/OQLQSeA.png)
+
+
 ## Testing
 Testing is done via Rspec
 
