@@ -21,7 +21,7 @@ A Laravel app will be created in your `src` folder
 ## Rename .env.example to .env
 ```
 NETWORK_NAME=custom-network
-XDEBUG_CONFIG=remote_host=192.168.1.1
+XDEBUG_CONFIG=remote_host=host.docker.internal
 ```
 
 Ensure you have the right `remote_host` for XDebug specified. You may need to modify the config if host.docker.internal does not work for your OS.
