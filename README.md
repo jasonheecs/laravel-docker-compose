@@ -36,6 +36,9 @@ Ensure you have the right `remote_host` for XDebug specified. You may need to mo
 ### Create a Debug configuration
 ![PHPStorm Debug Configuration](https://i.imgur.com/OQLQSeA.png)
 
+### Enable listening for PHP Debug Connections
+![Enable listening for PHP Debug Connections](https://i.imgur.com/Nvi5Lw8.png)
+
 
 ## Testing
 Testing is done via Rspec
